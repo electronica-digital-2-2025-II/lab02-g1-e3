@@ -7,7 +7,7 @@ module mult4bits(
     output reg [7:0] PP,   // Product (6 bits)
     output reg done,
     output reg overflow,
-    output reg zero,
+    output reg zero
 );
 
     // Estados
@@ -46,8 +46,8 @@ module mult4bits(
     always @(posedge clk or posedge rst) begin
         if (rst) begin
             PP <= 8'b0;
-            A <= 3'b0;
-            B <= 3'b0;
+            A <= 4'b0;
+            B <= 4'b0;
             shift_count <= 0;
             done <= 0;
             overflow <= 0;
@@ -83,7 +83,7 @@ module mult4bits(
                 END1: begin
                     done <= 1;
                     zero <= (PP==0);
-                    overlow <=(PP < 8'd225);
+                    overflow <=(PP > 8'd225);
                 end
             endcase
         end
