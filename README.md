@@ -3,6 +3,7 @@
 # Lab02 - Unidad Aritmético-Lógica.
 
 # Integrantes
+* [Brandon Alexis Galeano Martínez](https://github.com/BAgaleanoM)
 
 # Informe
 
