@@ -1,20 +1,21 @@
-`timescale 1ns / 1ps
 
 module alu4b(
     input [3:0] A,
     input [3:0] B,
-    input [2:0] sel,   // Selecciona la operación
+    input [2:0] sel,   // Selecciona la operaciÃ³n
     input clk,
     input init,
-    input rst,
+    input rst, //nO OLVIDAR UTILIZAR RESET PARA EL MULTIPLEXOR
     output reg [7:0] Y,
     output reg zero,
     output reg overflow,
     output reg done
 );
 
-    // Señales internas
+    // SeÃ±ales internas
     wire [3:0] sum_res, sub_res;
+    wire Co;
+    wire Co_subs;
     wire [7:0] mul_res;
     wire sum_zero, sub_zero, mul_zero;
     wire sum_over, sub_over, mul_over, mul_done;
@@ -25,7 +26,7 @@ module alu4b(
         .B(B),
         .Ci(1'b0),
         .S(sum_res),
-        .Co(),
+        .Co(Co),
         .overflow(sum_over),
         .zero(sum_zero)
     );
@@ -36,12 +37,12 @@ module alu4b(
         .B(B),
         .Ci(1'b0),
         .S(sub_res),
-        .Co(),
+        .Co(Co_subs),
         .overflow(sub_over),
         .zero(sub_zero)
     );
 
-    // MULTIPLICACIÓN
+    // MULTIPLICACIÃ“N
     mult4bits MULT (
         .MD(A),
         .MR(B),
@@ -54,35 +55,35 @@ module alu4b(
         .zero(mul_zero)
     );
 
-    // MUX de selección de operación
+    // MUX de selecciÃ³n de operaciÃ³n
     always @(*) begin
         case (sel)
             3'b000: begin // SUMA
-                Y = {4'b0000, sum_res};
+                Y = {3'b000, Co ,sum_res};
                 zero = sum_zero;
                 overflow = sum_over;
                 done = 1'b1;
             end
             3'b001: begin // RESTA
-                Y = {4'b0000, sub_res};
+                Y = {3'b000,Co_subs,sub_res};
                 zero = sub_zero;
                 overflow = sub_over;
                 done = 1'b1;
             end
-            3'b010: begin // MULTIPLICACIÓN
+            3'b010: begin // MULTIPLICACIÃ“N
                 Y = mul_res;
                 zero = mul_zero;
                 overflow = mul_over;
                 done = mul_done;
             end
             3'b011: begin // OR
-                Y = {4'b0000, (A | B)};
+                Y = (A | B);
                 zero = ((A | B) == 0);
                 overflow = 0;
                 done = 1'b1;
             end
             3'b100: begin // SHIFT LEFT
-                Y = {4'b0000, (A << 1)};
+                Y = (A << 1);
                 zero = ((A << 1) == 0);
                 overflow = 0;
                 done = 1'b1;
