@@ -9,7 +9,7 @@
 
 Indice:
 
-1. [Diseño implementado](#Operaciones-de-la-ALU)
+1. [Operaciones de la ALU](#Operaciones-de-la-ALU)
 2. [Simulaciones](#simulaciones)
 3. [Implementación](#implementación)
 4. [Conclusiones](#conclusiones)
@@ -17,13 +17,18 @@ Indice:
 
 ## Operaciones de la ALU
 
-### Descripción
+### Suma
+### Resta
+### Multiplicación
+### Compuerta OR
+### Corrimiento izquierda
 
 
 ## Simulaciones 
+Para la ALU se hizo un solo archivo de simulación donde se prueban los módulos de operaciones implementadas uno tras otro, así se evidencia también la labor del multiplexor que elige qué operaciones hacer. 
 
 ## Implementación
-
+Como se verá en las evidencias se usó un DIP Switch de 4 posiciones para _A_ y para _B_, que son las entredas de 4 bits cada una. También se usó otro DIP Switch para el selector del multiplex. 
 ## Conclusiones
 
 ## Referencias
