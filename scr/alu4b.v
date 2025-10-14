@@ -12,7 +12,7 @@ module alu4b(
     output reg done
 );
 
-    // SeÃ±ales internas
+    // Señales internas
     wire [3:0] sum_res, sub_res;
     wire Co;
     wire Co_subs;
@@ -42,7 +42,7 @@ module alu4b(
         .zero(sub_zero)
     );
 
-    // MULTIPLICACIÃ“N
+    // MULTIPLICACIÓN
     mult4bits MULT (
         .MD(A),
         .MR(B),
@@ -55,7 +55,7 @@ module alu4b(
         .zero(mul_zero)
     );
 
-    // MUX de selecciÃ³n de operaciÃ³n
+    // MUX de selección de operación
     always @(*) begin
         case (sel)
             3'b000: begin // SUMA
@@ -70,7 +70,7 @@ module alu4b(
                 overflow = sub_over;
                 done = 1'b1;
             end
-            3'b010: begin // MULTIPLICACIÃ“N
+            3'b010: begin // MULTIPLICACIÓN
                 Y = mul_res;
                 zero = mul_zero;
                 overflow = mul_over;

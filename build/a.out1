@@ -1,33 +1,24 @@
-**** module/scope: shift_bi_register
-     Flip-Flops   : 0
-     Logic Gates  : 52
-**** module/scope: shift_bi_register.D_0
-     Flip-Flops   : 8
-     Logic Gates  : 70
-     EQUALITY[32]: 1 units
-     LOG[13]: 1 unaccounted
-     LOG[14]: 1 unaccounted
-**** module/scope: shift_bi_register.D_1
-     Flip-Flops   : 8
-     Logic Gates  : 70
-     EQUALITY[32]: 1 units
-     LOG[13]: 1 unaccounted
-     LOG[14]: 1 unaccounted
-**** module/scope: shift_bi_register.D_2
-     Flip-Flops   : 8
-     Logic Gates  : 70
-     EQUALITY[32]: 1 units
-     LOG[13]: 1 unaccounted
-     LOG[14]: 1 unaccounted
-**** module/scope: shift_bi_register.D_3
-     Flip-Flops   : 8
-     Logic Gates  : 70
-     EQUALITY[32]: 1 units
-     LOG[13]: 1 unaccounted
+**** module/scope: mult4bits
+     Flip-Flops   : 24
+     Logic Gates  : 189
+     ADDER[2]: 1 units
+     ADDER[8]: 1 units
+     EQUALITY[32]: 2 units
+     MAGNITUDE[8]: 1 units
+     MUX[2]: 9 slices
+     LPM[5]: 15 unaccounted
+     LPM[6]: 1 unaccounted
+     LOG[13]: 8 unaccounted
      LOG[14]: 1 unaccounted
 **** TOTALS
-     Flip-Flops   : 32
-     Logic Gates  : 332
-     EQUALITY[32]: 4 units
-     LOG[13]: 4 unaccounted
-     LOG[14]: 4 unaccounted
+     Flip-Flops   : 24
+     Logic Gates  : 189
+     ADDER[2]: 1 units
+     ADDER[8]: 1 units
+     EQUALITY[32]: 2 units
+     MAGNITUDE[8]: 1 units
+     MUX[2]: 9 slices
+     LPM[5]: 15 unaccounted
+     LPM[6]: 1 unaccounted
+     LOG[13]: 8 unaccounted
+     LOG[14]: 1 unaccounted
