@@ -9,17 +9,16 @@
 
 Indice:
 
-1. [Diseño implementado](#diseño-implementado)
+1. [Diseño implementado](#Operaciones-de-la-ALU)
 2. [Simulaciones](#simulaciones)
 3. [Implementación](#implementación)
 4. [Conclusiones](#conclusiones)
 5. [Referencias](#referencias)
 
-## Diseño implementado
+## Operaciones de la ALU
 
 ### Descripción
 
-### Diagrama
 
 ## Simulaciones 
 
