@@ -3,6 +3,7 @@
 
 ## 👥 Integrantes
 * [Brandon Alexis Galeano Martínez](https://github.com/BAgaleanoM)
+* [Juan David Torres Román](https://github.com/JuandavidT02)
 
 ---
 
@@ -19,14 +20,14 @@
 
 ## 🧾 Descripción General
 
-En este laboratorio se diseñó una **Unidad Aritmético-Lógica (ALU)** de 4 bits utilizando el lenguaje **Verilog HDL**.  
+En este laboratorio se diseñó una **Unidad Aritmético-Lógica (ALU)** de 4 bits utilizando el lenguaje **Verilog**.  
 El objetivo fue implementar un módulo capaz de realizar operaciones aritméticas y lógicas básicas, controladas mediante una señal de selección (`sel`).  
 
 El proyecto incluyó:
 - Implementación modular de cada operación.
 - Creación de un multiplexor para seleccionar la salida correspondiente.
-- Simulación con **GTKWave**.
-- Pruebas físicas en una **FPGA Basys 3 / Nexys A7**.
+- Testbench con **GTKWave**.
+- Pruebas físicas en una **FPGA Zybo Z7**.
 
 ---
 
@@ -38,7 +39,7 @@ Cada operación está implementada como un bloque independiente y controlada por
 | Código `sel` | Operación | Descripción |
 |---------------|------------|--------------|
 | `000` | Suma | `Y = A + B` |
-| `001` | Resta | `Y = A - B = A + (~B + 1)` |
+| `001` | Resta | `Y = A - B`  |
 | `010` | Multiplicación | `Y = A * B` |
 | `011` | OR Lógica | `Y = A | B` |
 | `100` | Corrimiento Izquierda | `Y = A << 1` |
@@ -124,7 +125,7 @@ En la implementación práctica, se usaron **DIP Switches** y **LEDs** de la pla
 
 **Configuración:**
 - Se utilizó **Vivado Design Suite** para síntesis, implementación y generación del bitstream.  
-- Se asignaron los pines mediante el archivo `.xdc` de la FPGA Basys 3/Nexys A7.  
+- Se asignaron los pines mediante el archivo `.xdc` de la FPGA Zybo Z7.  
 - El sistema se probó con valores representativos para validar todas las operaciones.
 
 **Observaciones:**
