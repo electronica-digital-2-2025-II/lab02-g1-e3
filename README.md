@@ -1,5 +1,6 @@
-
-# 💡 Lab02 - Unidad Aritmético-Lógica (ALU)
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/sEFmt2_p)
+[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=20894620&assignment_repo_type=AssignmentRepo)
+# Lab02 - Unidad Aritmético-Lógica (ALU)
 
 ## 👥 Integrantes
 * [Brandon Alexis Galeano Martínez](https://github.com/BAgaleanoM)
@@ -7,7 +8,7 @@
 
 ---
 
-## 📘 Índice
+## Índice
 1. [Descripción General](#descripción-general)
 2. [Operaciones de la ALU](#operaciones-de-la-alu)
 3. [Estructura del Proyecto](#estructura-del-proyecto)
@@ -18,7 +19,7 @@
 
 ---
 
-## 🧾 Descripción General
+## Descripción General
 
 En este laboratorio se diseñó una **Unidad Aritmético-Lógica (ALU)** de 4 bits utilizando el lenguaje **Verilog**.  
 El objetivo fue implementar un módulo capaz de realizar operaciones aritméticas y lógicas básicas, controladas mediante una señal de selección (`sel`).  
@@ -31,7 +32,7 @@ El proyecto incluyó:
 
 ---
 
-## ⚙️ Operaciones de la ALU
+## Operaciones de la ALU
 
 La ALU ejecuta **cinco operaciones** sobre dos operandos de 4 bits (`A` y `B`).  
 La suma, resta y multiplicación están diseñadas como operaciones implementadas en un bloque independiente, mientras que OR y el corrimiento están implementadas en el mismo mux y en este caso en el case respectivo, para acceder a case se utiliza y se controla mediante la señal `sel`.
@@ -44,30 +45,30 @@ La suma, resta y multiplicación están diseñadas como operaciones implementada
 | `011` | OR Lógica | `Y = A OR B` |
 | `100` | Corrimiento Izquierda | `Y = A << 1` |
 
-### ➕ Suma
+### Suma
 Parte de un sumador de 1 bit realizado a partir de compuertas lógicas, luego de esto, se conectan en serie 3 sumadores más para realizar el sumador de 4 bits.  
 En este caso no es posible una salida **overflow**, ya que el resultado siempre será máximo de 5 bits, todos estos se disponen en Y que es de 8 bits.
 De igual forma se dispone de la bandera zero cuando el resultado sea cero.
 
-### ➖ Resta
+### Resta
 Implementada mediante el **complemento a dos** del operando `B`, se emplea la misma lógica que en el sumador completo pero en este caso com se menciona, utilizando un complemento a dos, se reutiliza el mismo bloque del sumador.
 De igual forma se dispone de la bandera zero cuando el resultado sea cero, cuando `A` y `B` sean iguales.
 El resultado overflow no es posible ya que la salida tiene 8 bits disponibles.
 
-### ✖️ Multiplicación
+### Multiplicación
 Multiplica los operandos `A` y `B`, generando una salida de **8 bits**; la multiplicación se realiza empleando la máquina de estados realizada en el `Laboratorio 1`, en este caso no se puede obtener un overflow ya que obtendremos una salida como máximo de 8 bits, pero si se puede obtener un resultado cero cuando uno de sus multiplicadores ya sea `A` o `B` sea cero.
 
-### 🧠 OR Lógica
+### OR Lógica
 Opera bit a bit la compuerta lógica OR entre `A` y `B`.  
 Permite verificar el comportamiento combinacional puro de la ALU.
 
-### ⬅️ Corrimiento Izquierda
+### Corrimiento Izquierda
 Desplaza todos los bits de `A` una posición a la izquierda, lo cual da como resultado el equivalente a una multiplicación por 2, de esta manera obtenemos que la salida siempre tendrá un bit más que el valor inicial.
 Permite observar el efecto sobre los bits más significativos.
 
 ---
 
-## 🗂️ Estructura del Proyecto
+## Estructura del Proyecto
 
 El repositorio contiene los siguientes archivos en la carpeta scr:
 
@@ -84,7 +85,7 @@ Los módulos de suma, resta y multiplicación fueron diseñados a medida que se 
 
 ---
 
-## 🧩 Simulaciones
+## Simulaciones
 
 Se elaboró un **testbench (`alu4b_tb.v`)** que prueba todas las operaciones de la ALU secuencialmente.  
 Durante la simulación se variaron `A`, `B` y `sel`, observando la salida `Y` y las señales de control.
@@ -94,7 +95,7 @@ Durante la simulación se variaron `A`, `B` y `sel`, observando la salida `Y` y 
 - **Vivado** → Síntesis, implementación, generación del bitstream y programación de la FPGA.
 
 
-### 🔍 Resultados de simulación
+### Resultados de simulación
 - Los resultados de cada operación coincidieron con los valores teóricos esperados.
 - El **multiplexor** cambió correctamente la salida en función de `sel`.
 - No se observaron retardos significativos ni errores de propagación.
@@ -113,7 +114,7 @@ Las formas de onda en **GTKWave** muestran claramente los cambios de salida y el
 
 ---
 
-## 🔌 Implementación en FPGA
+## Implementación en FPGA
 
 En la implementación práctica, se usaron **DIP Switches** y **LEDs** tanto de la placa FPGA como unos físicos que se establecieron en una protoboard para representar las entradas y salidas.
 
@@ -138,7 +139,7 @@ Cabe recalcar que para la utilización de los **DIP Switches** se configuraron e
 
 ---
 
-## 🧠 Conclusiones
+## Conclusiones
 
 - Se implementó correctamente una **ALU modular de 4 bits**, capaz de realizar cinco operaciones aritmético-lógicas básicas.  
 - El uso de **módulos jerárquicos** facilitó el diseño, depuración y simulación del sistema.  
@@ -148,7 +149,7 @@ Cabe recalcar que para la utilización de los **DIP Switches** se configuraron e
 
 ---
 
-## 📚 Referencias
+## Referencias
 
 - M. Morris Mano, *Diseño Digital: Principios y Prácticas*, 4ta edición, Pearson, 2011.  
 - Xilinx Inc., *Vivado Design Suite User Guide*, UG973, 2022.  
