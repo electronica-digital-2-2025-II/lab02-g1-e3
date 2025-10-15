@@ -66,6 +66,11 @@ Permite verificar el comportamiento combinacional puro de la ALU.
 Desplaza todos los bits de `A` una posición a la izquierda, lo cual da como resultado el equivalente a una multiplicación por 2, de esta manera obtenemos que la salida siempre tendrá un bit más que el valor inicial.
 Permite observar el efecto sobre los bits más significativos.
 
+### Diagrama de la ALU
+En el siguiente diagrama se presenta un esquema de la ALU, donde los módulos encargados de la multipliación, suma y resta son instanciados por el multiplexor. El corrimiento y la compuerta OR son hechos por métodos que verilog permite, esto se puede evidenciar en el código de la ALU, donde la sección del selector implementa directamente estas dos operaciones, sin instanciar módulos extra.
+
+![ALU implementada](ALU_DIGITAL_II.png)
+
 ---
 
 ## Estructura del Proyecto
