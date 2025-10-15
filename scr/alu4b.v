@@ -5,7 +5,7 @@ module alu4b(
     input [2:0] sel,   // Selecciona la operaciÃ³n
     input clk,
     input init,
-    input rst, //nO OLVIDAR UTILIZAR RESET PARA EL MULTIPLEXOR
+    input rst,
     output reg [7:0] Y,
     output reg zero,
     output reg overflow,
