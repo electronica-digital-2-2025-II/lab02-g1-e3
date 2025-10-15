@@ -25,7 +25,7 @@ En este laboratorio se diseñó una **Unidad Aritmético-Lógica (ALU)** de 4 bi
 El objetivo fue implementar un módulo capaz de realizar operaciones aritméticas y lógicas básicas, controladas mediante una señal de selección (`sel`).  
 
 El proyecto incluyó:
-- Implementación modular de cada operación.
+- Implementación modular de las operaciones suma, resta y multiplicación; la operación OR y el corrimiento se desarrollaron en el mismo mux.
 - Creación de un multiplexor para seleccionar la salida correspondiente.
 - Testbench con **GTKWave**.
 - Pruebas físicas en una **FPGA Zybo Z7**.
@@ -74,7 +74,7 @@ El repositorio contiene los siguientes archivos en la carpeta scr:
 
 | Archivo | Descripción |
 |----------|-------------|
-| **`alu4b.v`** | Módulo principal que integra todas las operaciones y el multiplexor de selección. |
+| **`adder.v`** | Módulo donde se emplea la lógica combinacional de un sumador de un bit. |
 | **`adder4b.v`** | Implementación del sumador completo de 4 bits. |
 | **`subs4b.v`** | Módulo de resta usando complemento a dos. |
 | **`mult4bits.v`** | Módulo de multiplicación de 4 bits con salida de 8 bits. |
@@ -87,7 +87,7 @@ Los módulos de suma, resta y multiplicación fueron diseñados a medida que se 
 
 ## Simulaciones
 
-Se elaboró un **testbench (`alu4b_tb.v`)** que prueba todas las operaciones de la ALU secuencialmente.  
+Se elaboró un **testbench (`alu4b_tb.v`)**, que prueba todas las operaciones de la ALU secuencialmente.  
 Durante la simulación se variaron `A`, `B` y `sel`, observando la salida `Y` y las señales de control.
 
 **Herramientas utilizadas:**
@@ -108,7 +108,7 @@ Durante la simulación se variaron `A`, `B` y `sel`, observando la salida `Y` y 
 | 9 | 2 | 001 | Resta | 7 (0111) |
 | 4 | 3 | 010 | Multiplicación | 12 (00001100) |
 | 6 | 3 | 011 | OR | 7 (0111) |
-| 5 | X | 100 | Corrimiento izquierda | 10 (1010) |
+| 5 | X | 100 | Corrimiento izquierda | 16 (1000) |
 
 Las formas de onda en **GTKWave** muestran claramente los cambios de salida y el efecto del selector `sel` en tiempo real.
 
@@ -120,12 +120,12 @@ En la implementación práctica, se usaron **DIP Switches** y **LEDs** tanto de 
 
 | Señal | Descripción | Elemento físico |
 |-------|--------------|----------------|
-| `A[3:0]` | Entradas del operando A | DIP Switch (SW0–SW3) |
-| `B[3:0]` | Entradas del operando B | DIP Switch (SW4–SW7) |
-| `sel[2:0]` | Selector de operación | DIP Switch (SW8–SW10) |
-| `Y[7:0]` | Salida de la ALU | LEDs (LD0–LD7) |
+| `A[3:0]` | Entradas del operando A | DIP Switch (SW0–SW3), en la protoboard |
+| `B[3:0]` | Entradas del operando B | DIP Switch (SW4–SW7), en la protoboard |
+| `sel[2:0]` | Selector de operación | DIP Switch (SW8–SW10), en la FPGA |
+| `Y[7:0]` | Salida de la ALU | LEDs (LD0–LD7), en la protoboard |
 
-Cabe recalcar que para la utilización de los **DIP Switches** se configuraron en el `.xdc` como pulldown para cersiorarnos de su valor lógico y para no emplear resistencias. 
+Cabe recalcar que para la utilización de los **DIP Switches** en la protoboard estos se configuraron en el `.xdc` como pulldown para cersiorarnos de su valor lógico y para no emplear resistencias. 
 
 **Configuración:**
 - Se utilizó **Vivado Design Suite** para síntesis, implementación y generación del bitstream.  
