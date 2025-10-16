@@ -5,7 +5,7 @@
 ## Integrantes
 * [Brandon Alexis Galeano Martínez](https://github.com/BAgaleanoM)
 * [Juan David Torres Román](https://github.com/JuandavidT02)
-
+* [Daniel Alexander Morales Giraldo](https://github.com/Daniel0507-2001).
 ---
 
 ## Índice
